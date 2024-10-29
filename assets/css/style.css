@@ -33,3 +33,38 @@ font-family:"Archivo"}
             transition: transform 0.3s; /* Transição suave */
         }
         
+        #s-game {
+            padding: 96px 48px;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+        }
+        
+        #s-game input {
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #986dff;
+            border-radius: 4px;
+            background-color: #151515;
+            color: #fff;
+        }
+        
+        #s-game button {
+            padding: 10px 20px;
+            background-color: #986dff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        #s-game button:hover {
+            background-color: #8458d4;
+        }
+        
+        #s-game p {
+            font-size: 1.8rem;
+            margin-top: 20px;
+        }
+        

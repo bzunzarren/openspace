@@ -49,8 +49,8 @@
             <div class="line3"></div>
           </div>
           <ul class="nav-list">
-            <li><a href="serviço.html" rel="noopener" target="_blank">Instagram</a></li>
-            <li><a href="serviço.html" rel="noopener" target="_blank">Whatsapp</a></li>
+            <li><a href="https://www.instagram.com/brunazunzarren/" rel="noopener" target="_blank">Instagram</a></li>
+            <li><a href="https://wa.me/5531989857404?text=" rel="noopener" target="_blank">Whatsapp</a></li>
             <li><a href="serviço.html" rel="noopener" target="_blank">eBook</a></li>
           </ul>
         </nav>
@@ -330,49 +330,60 @@
         </div>
       </section>
 
-
-<section id="s-skills">
-    <div class="grid-layout">
-        <div id="skills">
-            <article id="skills-text">
-                <h2 class="delaySmallReveal">Contato <span>.</span></h2>
-            </article>
-            <form id="contact-form">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Mensagem:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Enviar</button>
-            </form>
+      <section id="s-game" style="padding: 96px 48px; background-color: #111; color: #fff; text-align: center;">
+        <div class="grid-layout">
+            <h2>Jogo da Adivinhação <span>.</span></h2>
+            <p>Tente adivinhar um número entre 1 e 100!</p>
+            <div id="game-container">
+                <input type="number" id="guess" min="1" max="100" required placeholder="Digite seu palpite">
+                <button id="submit-guess">Enviar Palpite</button>
+                <p id="result"></p>
+                <button id="restart" style="display: none;">Recomeçar</button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    <script>
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      const resultDisplay = document.getElementById('result');
+      const submitGuessButton = document.getElementById('submit-guess');
+      const guessInput = document.getElementById('guess');
+      const restartButton = document.getElementById('restart');
+  
+      submitGuessButton.addEventListener('click', function() {
+          const userGuess = parseInt(guessInput.value);
+          if (userGuess < 1 || userGuess > 100) {
+              resultDisplay.textContent = 'Por favor, adivinhe um número entre 1 e 100.';
+              return;
+          }
+  
+          if (userGuess === randomNumber) {
+              resultDisplay.textContent = 'Parabéns! Você acertou!';
+              submitGuessButton.style.display = 'none';
+              restartButton.style.display = 'inline-block';
+          } else if (userGuess < randomNumber) {
+              resultDisplay.textContent = 'Muito baixo! Tente novamente.';
+          } else {
+              resultDisplay.textContent = 'Muito alto! Tente novamente.';
+          }
+  
+          guessInput.value = '';
+      });
+  
+      restartButton.addEventListener('click', function() {
+          randomNumber = Math.floor(Math.random() * 100) + 1;
+          resultDisplay.textContent = '';
+          guessInput.value = '';
+          submitGuessButton.style.display = 'inline-block';
+          restartButton.style.display = 'none';
+      });
+  </script>
+  
+    
 
-<script>
-    (function() {
-        emailjs.init("69a9uERDpywXJVPEl"); // Substitua pelo seu USER_ID
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        emailjs.sendForm('service_lfmfbdt', 'service_lfmfbdt', this)
-            .then(function() {
-                alert('Mensagem enviada com sucesso!');
-            }, function(error) {
-                alert('Erro ao enviar: ' + JSON.stringify(error));
-            });
-    });
-</script>
 
 
 
-    <a href="https://wa.me/(31)89857404" target="_blank" id="whatsapp-button">
+    <a href="https://wa.me/5531989857404?text=" target="_blank" id="whatsapp-button">
         <img src="assets/image/whatsapp.png" alt="WhatsApp" />
     </a>
     
